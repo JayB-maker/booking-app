@@ -1,18 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { hideWord, truncateString } from "./helpers/hideWord";
-import CustomInputField from "./components/ui/customHTMLElements/CustomInputField";
-// import './App.css'
+import { BrowserRouter as Router } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AppRoutes from "./AppRoutes";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div className="mt-4 p-4">
-      <CustomInputField type="text" label="Name" placeholder="Name" onChange={(e:any) => console.log(e.target.value)} />
-      </div>
+      <Router>
+        <ScrollToTop />
+        <AppRoutes />
+      </Router>
+      <ToastContainer limit={2} />
     </>
   );
 }
