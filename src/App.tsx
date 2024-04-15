@@ -11,7 +11,7 @@ function App() {
         <ScrollToTop />
         <AppRoutes />
       </Router>
-      <ToastContainer limit={2} />
+      <ToastContainer limit={2}/>
     </>
   );
 }
