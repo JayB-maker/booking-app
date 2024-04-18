@@ -12,11 +12,12 @@ import relax from "../../../assets/relax.svg";
 import shop from "../../../assets/shop.svg";
 import { useNavigate } from "react-router-dom";
 import Modal from "./modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const OverviewPage = () => {
   const navigate = useNavigate();
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({});
 
   const section2 = [
     {
@@ -41,28 +42,40 @@ const OverviewPage = () => {
 
   const latest = [
     {
+      id: 1,
       image: pet1,
       category: "DOG",
       name: "Abiodun Emmanuel Ajiboye",
       price: "#5000",
+      description:
+        "Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim d",
     },
     {
+      id: 2,
       image: pet2,
       category: "DOG",
       name: "Abiodun Emmanuel Ajiboye",
       price: "#5000",
+      description:
+        "Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim d",
     },
     {
+      id: 3,
       image: pet3,
       category: "DOG",
       name: "Abiodun Emmanuel Ajiboye",
       price: "#5000",
+      description:
+        "Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim d",
     },
     {
+      id: 4,
       image: pet1,
       category: "DOG",
       name: "Abiodun Emmanuel Ajiboye",
       price: "#5000",
+      description:
+        "Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim dolor Lorem ipsuim d",
     },
   ];
 
@@ -93,10 +106,12 @@ const OverviewPage = () => {
     },
   ];
 
+  // console.log(selectedItem);
+
   return (
     <>
       <GeneralLayout>
-        <div className="bg-[#000000] flex md:flex-row flex-col justify-between items-center md:h-[720px]">
+        <div className="bg-[#01100B] flex md:flex-row flex-col justify-between items-center md:h-[720px]">
           <div className="md:pl-[145px] p-[28px] md:w-[50%] text-white flex flex-col gap-[20px]">
             <h1 className="text-[32px] md:text-[64px] font-bold">
               BEST DISPENSARY TO BUY WEED ONLINE{" "}
@@ -117,9 +132,9 @@ const OverviewPage = () => {
           </div>
         </div>
         <div className="bg-[#F2F6F4] flex flex-col md:grid md:grid-cols-3 p-[24px] gap-[32px] md:p-[80px]">
-          {section2.map((section) => {
+          {section2.map((section, index) => {
             return (
-              <div className="flex gap-[20px] col-span-1" >
+              <div key={index} className="flex gap-[20px] col-span-1">
                 <div className="bg-white w-[64px] h-[50px] md:w-[80px] md:h-[80px]  rounded-[100px] flex justify-center">
                   <img
                     src={section.image}
@@ -153,12 +168,17 @@ const OverviewPage = () => {
             </p>
           </div>
           <div className=" flex flex-col md:grid md:grid-cols-2 p-[24px] gap-x-[32px] gap-y-[64px] md:p-[80px] ">
-            {guide.map((item) => {
+            {guide.map((item, index) => {
               return (
-                <div className="flex flex-col items-center w-[548px] gap-[24px]">
+                <div
+                  key={index}
+                  className="flex flex-col items-center w-[548px] gap-[24px]"
+                >
                   <div className="flex gap-[34px]">
                     <div className="bg-[#F2BC1B] w-[40px] h-[40px] rounded-[100px] flex items-center">
-                      <p className="text-[#05422C] font-semibold m-auto">{item.id}</p>
+                      <p className="text-[#05422C] font-semibold m-auto">
+                        {item.id}
+                      </p>
                     </div>
                     <div>
                       <img src={item.image} className="w-[60%]" />
@@ -180,8 +200,17 @@ const OverviewPage = () => {
           <div className="bg-white flex flex-col md:flex-row flex-wrap p-[24px] gap-[64px] md:p-[40px] justify-center items-center">
             {latest.map((product) => {
               return (
-                <div className="flex flex-col col-span-1 gap-[24px] rounded-t-[32px] w-[20%] cursor-pointer" onClick={()=>setOpenModal(true)}>
-                  <div className="bg-[#F4F4F4] rounded-[32px] flex justify-center h-[300px] w-full bg-red-500 overflow-hidden object-cover">
+                <div
+                  key={product.id}
+                  className="flex flex-col col-span-1 gap-[24px] rounded-t-[32px] w-[20%] cursor-pointer"
+                >
+                  <div
+                    className="bg-[#F4F4F4] rounded-[32px] flex justify-center h-[300px] w-full bg-red-500 overflow-hidden object-cover"
+                    onClick={() => {
+                      setOpenModal(true);
+                      setSelectedItem(product);
+                    }}
+                  >
                     <img
                       src={product.image}
                       alt=""
@@ -206,9 +235,15 @@ const OverviewPage = () => {
           </div>
         </div>
       </GeneralLayout>
-      {openModal && <Modal/>}
+      {openModal && (
+        <Modal
+          showModal={openModal}
+          closeModal={setOpenModal}
+          data={latest}
+          selectedItem={selectedItem}
+        />
+      )}
     </>
-    
   );
 };
 
