@@ -17,7 +17,7 @@ const Modal = (props: ModalProps) => {
       data={data}
       selectedItem={selectedItem}
     >
-      <div className="flex flex-col bg-[#05422C] w-[1000px] p-[70px] gap-4">
+      <div className="flex flex-col bg-[#05422C] w-[1000px] p-[70px] gap-4 transition-transform duration-500 ease-in-out">
         <div className="w-[30px] absolute right-2 top-2 cursor-pointer" onClick={()=>closeModal(!showModal)}>
           <img src={close} alt="" className="w-full relative" />
         </div>

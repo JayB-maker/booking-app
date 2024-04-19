@@ -111,15 +111,20 @@ const OverviewPage = () => {
   return (
     <>
       <GeneralLayout>
-        <div className="bg-[#01100B] flex md:flex-row flex-col justify-between items-center md:h-[720px]">
-          <div className="md:pl-[145px] p-[28px] md:w-[50%] text-white flex flex-col gap-[20px]">
-            <h1 className="text-[32px] md:text-[64px] font-bold">
-              BEST DISPENSARY TO BUY WEED ONLINE{" "}
-            </h1>
-            <p>
-              Shop the best products for your pets from top brands in the
-              industry
-            </p>
+        <div className="bg-[#01100B] flex md:flex-row flex-col md:justify-between items-center md:h-[720px]">
+          <div className="md:pl-[145px] p-[28px] md:w-[50%] text-white flex flex-col items-center md:items-start gap-[32px] text-center md:text-left">
+            <div className="flex flex-col md:gap-0 gap-3">
+              <h1 className="text-[32px] md:text-[64px] font-bold">
+                Find Your Furry Friend at PetStore!
+              </h1>
+              <p>
+                From playful puppies to cuddly kittens, PetStore offers a
+                delightful array of pets waiting to find their forever homes.
+                Explore our selection of loving companions and bring home a new
+                member of the family today. Your perfect pet companion is just a
+                click away!"
+              </p>
+            </div>
             <button
               onClick={() => navigate("/signup")}
               className="bg-white text-black rounded-[24px] py-[10px] px-[25px] w-[185px] font-medium"
@@ -155,27 +160,27 @@ const OverviewPage = () => {
           })}
         </div>
 
-        <div className="bg-[#01100B] text-white p-[120px] flex flex-col items-center">
-          <div className="flex flex-col items-center justify-center md:w-[948px] text-center">
-            <h1 className="text-[32px] md:text-[60px] font-semibold">
+        <div className="bg-[#01100B] text-white px-[30px] py-[60px] md:p-[120px] flex flex-col items-center">
+          <div className="flex flex-col items-center justify-center w-full md:w-[948px] text-center">
+            <h1 className="text-[20px] md:text-[60px] font-semibold">
               HOW TO ORDER PETS ONLINE FROM THIS BOOKING APP - MAIL ORDER PETS
             </h1>
-            <p className="text-[14px] md:text-[16px] text-[#9D9EA2]">
+            <p className="text-[12px] md:text-[16px] text-[#9D9EA2]">
               Ordering weed online from Top Shelf BC is easy. We are proud to
               have made the process accessible across multiple platforms and
               simple to understand, meaning that more people can come to us to
               buy their cannabis products online.
             </p>
           </div>
-          <div className=" flex flex-col md:grid md:grid-cols-2 p-[24px] gap-x-[32px] gap-y-[64px] md:p-[80px] ">
+          <div className=" flex flex-col md:grid md:grid-cols-2 p-[50px] gap-x-[32px] gap-y-[64px] md:p-[80px] ">
             {guide.map((item, index) => {
               return (
                 <div
                   key={index}
-                  className="flex flex-col items-center w-[548px] gap-[24px]"
+                  className="flex flex-col items-center w-[548px] md:gap-[24px] gap-[30px]"
                 >
                   <div className="flex gap-[34px]">
-                    <div className="bg-[#F2BC1B] w-[40px] h-[40px] rounded-[100px] flex items-center">
+                    <div className="bg-[#F2BC1B] w-[30px] h-[30px] md:w-[40px] md:h-[40px] rounded-[100px] flex items-center">
                       <p className="text-[#05422C] font-semibold m-auto">
                         {item.id}
                       </p>
@@ -184,7 +189,7 @@ const OverviewPage = () => {
                       <img src={item.image} className="w-[60%]" />
                     </div>
                   </div>
-                  <div className="flex flex-col items-center gap-[24px]">
+                  <div className="flex flex-col items-center gap-[24px] px-[100px]">
                     <h3 className="font-semibold text-[24px]">{item.title}</h3>
                     <p className="text-center text-[#9D9EA2]">{item.desc}</p>
                   </div>
@@ -195,17 +200,19 @@ const OverviewPage = () => {
         </div>
 
         <div className="flex flex-col items-center py-5">
-          <h1 className="text-[32px] font-bold">RECENTLY ADDED</h1>
+          <h1 className="md:text-[32px] text-[24px] font-bold">
+            RECENTLY ADDED
+          </h1>
 
           <div className="bg-white flex flex-col md:flex-row flex-wrap p-[24px] gap-[64px] md:p-[40px] justify-center items-center">
             {latest.map((product) => {
               return (
                 <div
                   key={product.id}
-                  className="flex flex-col col-span-1 gap-[24px] rounded-t-[32px] w-[20%] cursor-pointer"
+                  className="flex flex-col md:col-span-1 gap-[24px] rounded-t-[32px] md:w-[20%] w-[80%] cursor-pointer"
                 >
                   <div
-                    className="bg-[#F4F4F4] rounded-[32px] flex justify-center h-[300px] w-full bg-red-500 overflow-hidden object-cover"
+                    className="bg-[#F4F4F4] rounded-[32px] flex justify-center h-[300px] w-full overflow-hidden object-cover"
                     onClick={() => {
                       setOpenModal(true);
                       setSelectedItem(product);
@@ -218,11 +225,13 @@ const OverviewPage = () => {
                     />
                   </div>
                   <div className="flex flex-col items-center gap-[16px]">
-                    <p className="text-[#9D9EA2] text-[14px]">
+                    <p className="text-[#9D9EA2] text-[16px] md:text-[14px]">
                       {product.category}
                     </p>
-                    <p className="md:text-[20px]">{product.name}</p>
-                    <p className="font-semibold text-[20px] text-[#01100B]">
+                    <p className="text-[20px] text-center font-medium">
+                      {product.name}
+                    </p>
+                    <p className="font-semibold text-[20px] text-[#F2BC1B]">
                       {product.price}
                     </p>
                     <button className="bg-[#05422C] text-white rounded-[24px] py-[10px] px-[25px] w-[185px] font-medium">
