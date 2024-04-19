@@ -50,7 +50,7 @@ const CustomTextArea: React.FC<ICustomTextAreaProps> = React.forwardRef(
       <div className="mb-4 lg:mb-[23px]">
         {label && (
           <div className="flex items-center mb-2">
-            <label className="block text-incoverGray text-[16px] font-[300]">
+            <label className="block text-[#4D5154] text-incoverGray text-[16px] font-[400]">
               {label}
             </label>
             {showRequiredIcon && <sup className="ml-1 text-[#EB5757]">*</sup>}

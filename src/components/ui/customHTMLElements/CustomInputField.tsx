@@ -76,7 +76,7 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
     return (
       <div className="w-full">
         {extraLabel?.length ? (
-          <h1 className="text-[#4D5154] text-[14px] lg:leading-[16px] tracking-[0.03px] font-[600] mb-2">
+          <h1 className="text-[#4D5154] text-[16px] lg:leading-[16px] tracking-[0.03px] font-[400] mb-2">
             {extraLabel}
           </h1>
         ) : null}
