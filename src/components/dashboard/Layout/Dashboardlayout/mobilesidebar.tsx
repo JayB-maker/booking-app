@@ -21,10 +21,10 @@ const MobileSidebar = (props: sidebarProps) => {
   };
 
   return (
-    <div className="fixed h-screen top-0 left-0 flex flex-col gap-[100px] p-[40px] w-[60%] bg-[#01100B] z-[100]">
+    <div className="fixed h-screen top-0 left-0 flex flex-col gap-[100px] p-7 w-[60%] bg-[#01100B] z-[100]">
       <img
         src={close}
-        className="w-[32px] absolute top-3 right-3"
+        className="w-[32px] absolute top-3 right-3 cursor-pointer"
         onClick={() => setShow(false)}
       />
       <div className="flex flex-col relative mt-[40px] gap-[40px]">

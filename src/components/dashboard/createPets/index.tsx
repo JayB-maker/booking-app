@@ -2,13 +2,13 @@ import { Formik } from "formik";
 import DashboardGeneralLayout from "../Layout/Dashboardlayout/Dashboardgenerallayout";
 import { FormProps } from "../Contact";
 import CustomInputField from "../../ui/customHTMLElements/CustomInputField";
-import cute from "../../../assets/cutiiee.jpg";
+// import cute from "../../../assets/cutiiee.jpg";
 
 const CreatePets = () => {
   return (
     <div>
       <DashboardGeneralLayout>
-        <div className="flex justify-center">
+        <div className="flex justify-center p-5 md:p-20 ">
           <Formik
             initialValues={{
               name: "",
@@ -24,7 +24,7 @@ const CreatePets = () => {
               return (
                 <form
                   onSubmit={handleSubmit}
-                  className="flex flex-col gap-5 text-black"
+                  className="flex flex-col gap-8 text-white w-full md:w-[80%] bg-[#0a2c20] p-14 rounded-lg"
                 >
                   <CustomInputField
                     onChange={handleChange}
@@ -63,9 +63,9 @@ const CreatePets = () => {
                   />
                   <button
                     type="submit"
-                    className="text-[#05422c] bg-[#93c47d] py-3 rounded-lg text-[20px] font-semibold "
+                    className="md:m-auto bg-[#24684f] text-white py-4 rounded-lg text-[20px] md:w-[30%] font-bold "
                   >
-                    submit
+                    Submit
                   </button>
                 </form>
               );

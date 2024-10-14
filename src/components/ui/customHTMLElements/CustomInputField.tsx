@@ -76,7 +76,7 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
     return (
       <div className="w-full">
         {extraLabel?.length ? (
-          <h1 className="text-white text-[16px] lg:leading-[16px] tracking-[0.03px] font-[400] mb-2">
+          <h1 className="text-[16px] lg:leading-[16px] tracking-[0.03px] font-[400] mb-2">
             {extraLabel}
           </h1>
         ) : null}
@@ -105,7 +105,7 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
               errors
                 ? "border-[#B00020] focus:border-[#B00020]"
                 : "border-[#C8CCD0] focus:border-incoverGreen"
-            }   rounded-lg w-full h-[44px] py-[12px] ${
+            }   rounded-lg w-full h-[55px] py-5 ${
               hasIcon ? "pl-14 pr-4" : "px-6"
             } ${errors && "border-[#B00020]"} ${hasActionButton && ""} ${
               children && "border-l-0"

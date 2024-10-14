@@ -7,7 +7,7 @@ const [show, setShow] = useState(false)
 
     return(
         <div>
-            <img src={menu} className="md:hidden block" onClick={()=>setShow(true)}/>
+            <img src={menu} className="md:hidden block cursor-pointer" onClick={()=>setShow(true)}/>
 
             {show && <MobileSidebar setShow={setShow}/>}
         </div>
