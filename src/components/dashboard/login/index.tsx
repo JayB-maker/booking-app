@@ -1,17 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import CustomInputField from "../../ui/customHTMLElements/CustomInputField";
 import cute from "../../../assets/cutiiee.jpg";
+import { FormProps } from "../Contact";
+import { Formik } from "formik";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   return (
     <div className="grid flex flex-col md:grid-cols-2 items-center h-screen ">
       <div className="w-[100%] h-full m-auto object-fit bg-white hidden md:flex items-end">
-        <img
-          src={cute}
-          alt=""
-          className="col-span-1 w-full object-fit"
-        />
+        <img src={cute} alt="" className="col-span-1 w-full object-fit" />
       </div>
 
       <div className="flex flex-col justify-center bg-[#05422c] text-white h-full p-[20px] md:p-[100px] gap-[32px]">
@@ -22,11 +20,51 @@ const LoginPage = () => {
           </p>
         </div>
 
-        <CustomInputField type="email" label="Email" />
-        <CustomInputField type="password" label="Password" />
-        <button className="text-[#05422c] bg-[#93c47d] py-3 rounded-lg text-[20px] font-semibold">
-          Login
-        </button>
+        <Formik
+          initialValues={{
+            email: "",
+            password: "",
+          }}
+          onSubmit={(values: any) => {
+            console.log(values);
+          }}
+        >
+          {(props: FormProps) => {
+            const { values, handleChange, handleSubmit } = props;
+            return (
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-[32px] md:gap-[48px]"
+              >
+                <CustomInputField
+                  value={values.email}
+                  name="email"
+                  onChange={handleChange}
+                  type="email"
+                  label="Email"
+                />
+                <CustomInputField
+                  value={values.password}
+                  name="password"
+                  onChange={handleChange}
+                  type="password"
+                  label="Password"
+                />
+                <button
+                  type="submit"
+                  className={`text-[#05422c] bg-[#93c47d] py-3 rounded-lg text-[20px] font-semibold ${
+                    !values.email || !values.password
+                      ? "opacity-[0.2] cursor-not-allowed"
+                      : ""
+                  }`}
+                  disabled={!values.email || !values.password}
+                >
+                  Login
+                </button>
+              </form>
+            );
+          }}
+        </Formik>
         <p>
           Don't have an account?{" "}
           <span

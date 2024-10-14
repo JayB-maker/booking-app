@@ -2,6 +2,13 @@ import GeneralLayout from "../Layout/Generallayout";
 import cute from "../../../assets/cutiiee.jpg";
 import CustomInputField from "../../ui/customHTMLElements/CustomInputField";
 import CustomTextArea from "../../ui/customHTMLElements/CustomTextArea";
+import { Formik } from "formik";
+
+export interface FormProps {
+  values: any;
+  handleSubmit: any;
+  handleChange: any;
+}
 
 const Contact = () => {
   return (
@@ -16,7 +23,9 @@ const Contact = () => {
           <h1 className="font-bold text-[32px] md:text-[60px] text-center">
             Contact the PetStore
           </h1>
-          <p className="text-center">Let's make your pet's experience with us paws-itively perfect! </p>
+          <p className="text-center">
+            Let's make your pet's experience with us paws-itively perfect!{" "}
+          </p>
         </div>
       </div>
 
@@ -41,7 +50,9 @@ const Contact = () => {
             </a>
           </div>
           <div className="">
-            <h2 className="font-bold md:text-[20px] text-[18px] md:text-[20px]">Socials</h2>
+            <h2 className="font-bold md:text-[20px] text-[18px] md:text-[20px]">
+              Socials
+            </h2>
             <div className="flex flex-row md:flex-col gap-[16px]">
               <a
                 href="http://www.instagram.com/"
@@ -65,12 +76,60 @@ const Contact = () => {
           </div>
         </div>
         <div className="md:col-span-1 flex flex-col gap-[15px]">
-          <div className="flex flex-col gap-[32px] md:gap-[48px]">
-            <CustomInputField type="text" extraLabel="Name" required />
-            <CustomInputField type="email" extraLabel="Email" required />
-            <CustomTextArea label="Message" />
-          </div>
-          <button className="bg-[#01100B] text-white w-full py-3 rounded-lg">Submit</button>
+          <Formik
+            initialValues={{
+              Name: "",
+              email: "",
+              message: "",
+            }}
+            onSubmit={(values: any) => {
+              console.log(values);
+            }}
+          >
+            {(props: FormProps) => {
+              const { values, handleChange, handleSubmit } = props;
+              return (
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-[32px] md:gap-[48px]"
+                >
+                  <CustomInputField
+                    type="text"
+                    extraLabel="Name"
+                    required
+                    name="name"
+                    value={values.name}
+                    onChange={handleChange}
+                  />
+                  <CustomInputField
+                    type="email"
+                    extraLabel="Email"
+                    required
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                  />
+                  <CustomTextArea
+                    label="Message"
+                    name="message"
+                    value={values.message}
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="submit"
+                    className={`bg-[#01100B] text-white w-full py-3 rounded-lg ${
+                      !values.name || !values.email || !values.message
+                        ? "opacity-[0.2] cursor-not-allowed"
+                        : ""
+                    }`}
+                    disabled={!values.name || !values.email || !values.message}
+                  >
+                    Submit
+                  </button>
+                </form>
+              );
+            }}
+          </Formik>
         </div>
       </div>
     </GeneralLayout>

@@ -20,7 +20,7 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="p-5">
+      <div className="px-[120px] py-[90px]">
         <p className="leading-[3rem] text-[20px] text-justify">
           Whether you need in-home pet grooming, pet training, or vet on call,
           ThePetStore connects pet parents with pet care heroes who’ll treat

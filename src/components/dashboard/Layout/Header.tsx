@@ -26,7 +26,7 @@ const Header = () => {
 
       {showNavbar && <MobileNavbar showNavbar={showNavbar} setShowNavbar={setShowNavbar}/>}
       <div className="hidden md:flex justify-between items-center">
-        <div className="dancing font-bold md:text-[40px]">PETStore</div>
+        <div className="dancing font-bold md:text-[40px]">Petstore</div>
         <div className="flex justify-center gap-[100px] text-[#01100B]">
           <nav
             onClick={() =>handleNavigation("/")}
@@ -40,6 +40,9 @@ const Header = () => {
           </nav>
           <nav onClick={() =>handleNavigation("/contact")}  className={`cursor-pointer ${activeLink === "/contact" ? "text-[#F2BC1B]" : ""}`}>
             Contact Us
+          </nav>
+          <nav onClick={() =>handleNavigation("/our-store")}  className={`cursor-pointer ${activeLink === "/our-store" ? "text-[#F2BC1B]" : ""}`}>
+            Our Store
           </nav>
         </div>
         <div className="flex justify-center gap-[20px]">

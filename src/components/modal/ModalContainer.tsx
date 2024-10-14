@@ -5,7 +5,7 @@ export const ModalContainer = ({
 }: {
   children: any;
   showModal: boolean;
-  closeModal: any;
+  closeModal?: any;
   data:any;
   selectedItem:any
 }): JSX.Element => {

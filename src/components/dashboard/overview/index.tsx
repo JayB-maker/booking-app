@@ -111,7 +111,7 @@ const OverviewPage = () => {
   return (
     <>
       <GeneralLayout>
-        <div className="bg-[#01100B] flex md:flex-row flex-col md:justify-between items-center md:h-[720px]">
+        <div className="bg-[#01100B] flex md:flex-row flex-col md:justify-between items-center md:h-[720px] pt-[50px]">
           <div className="md:pl-[145px] p-[28px] md:w-[50%] text-white flex flex-col items-center md:items-start gap-[32px] text-center md:text-left">
             <div className="flex flex-col md:gap-0 gap-3">
               <h1 className="text-[32px] md:text-[64px] font-bold">
@@ -136,7 +136,7 @@ const OverviewPage = () => {
             <img src={petImage} className="w-full h-full" />
           </div>
         </div>
-        <div className="bg-[#F2F6F4] flex flex-col md:grid md:grid-cols-3 p-[24px] gap-[32px] md:p-[80px]">
+        <div className="bg-[#F2F6F4] flex flex-col md:grid md:grid-cols-3 p-[24px] gap-[32px] md:p-[80px] py-[60px]">
           {section2.map((section, index) => {
             return (
               <div key={index} className="flex gap-[20px] col-span-1">
@@ -160,7 +160,7 @@ const OverviewPage = () => {
           })}
         </div>
 
-        <div className="bg-[#01100B] text-white px-[30px] py-[60px] md:p-[120px] flex flex-col items-center">
+        <div className="bg-[#01100B] text-white px-[30px] py-[80px] md:p-[120px] flex flex-col items-center">
           <div className="flex flex-col items-center justify-center w-full md:w-[948px] text-center">
             <h1 className="text-[20px] md:text-[60px] font-semibold">
               HOW TO ORDER PETS ONLINE FROM THIS BOOKING APP - MAIL ORDER PETS
@@ -199,7 +199,7 @@ const OverviewPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center py-5">
+        <div className="flex flex-col items-center md:py-[70px] py-[100px]">
           <h1 className="md:text-[32px] text-[24px] font-bold">
             RECENTLY ADDED
           </h1>

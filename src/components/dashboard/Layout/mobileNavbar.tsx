@@ -19,11 +19,11 @@ const MobileNavbar = (props:navProps) => {
     // Perform navigation logic
   };
   return (
-    <div className="fixed top-0 left-0 z-[100] w-full h-screen bg-white p-5 flex flex-col gap-3">
+    <div className="fixed h-[100%] top-0 left-0 w-[100%] z-[100] bg-white p-5 flex flex-col gap-3">
       <div className="w-[40px]"  onClick={()=> setShowNavbar(false)}>
         <img src={close} className="w-full"/>
       </div>
-      <div className="md:hidden flex flex-col justify-between items-center text-center h-full p-5 mb-2">
+      <div className="md:hidden flex flex-col justify-between items-center text-center h-full py-5 mb-2">
         <div className="flex flex-col gap-[50px] text-[#01100B]">
           <nav
             onClick={() => handleNavigation("/")}
